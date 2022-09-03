@@ -1,6 +1,13 @@
 import { O_path_file } from "./O_path_file.module.js";
 
 
+
+var o_path_file = new O_path_file('test.html')
+console.log(o_path_file) // ./a/b/c/../../2/
+console.log(o_path_file.s_path_name_without_singleanddoubledots) // /a/2/
+
+Deno.exit(1)
+
 var a_s_pathfile = [
     '/tmp', 
     './.git/branches/', 
@@ -22,6 +29,9 @@ for(var s_pathfile of a_s_pathfile){
 
 
 
+
+
+
 var o_path_file = new O_path_file('/tmp')
 console.log(o_path_file.s_file_name) // tmp
 
@@ -40,3 +50,6 @@ console.log(o_path_file.o_mime_type_guessed_by_file_extension) // undefined
 var o_path_file = new O_path_file('./a/b/c/../../2/')
 console.log(o_path_file.s_path_name) // ./a/b/c/../../2/
 console.log(o_path_file.s_path_name_without_singleanddoubledots) // /a/2/
+
+
+
