@@ -62,7 +62,7 @@ class O_path_file{
                 this.s_file_extension = this.s_file_name.split(this.s_file_extension_separator).pop()
                 
                 this.o_mime_type_guessed_by_file_extension = a_o_mime_type_most_common.filter(
-                    o => o.s_file_extension == `.${this.s_file_extension}`
+                    o => `${this.s_file_extension.split(' ').includes(o.s_file_extension)}`
                     )[0]
                     // console.log(this.o_mime_type_guessed_by_file_extension)
                 }
