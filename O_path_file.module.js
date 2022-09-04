@@ -1,10 +1,17 @@
 import { a_o_mime_type_most_common } from "./a_o_mime_type_most_common.js"
 
+import * as log from "https://deno.land/std@0.153.0/log/mod.ts";
+
 class O_path_file{
 
     constructor(
         s
     ){
+        
+        log.warning("-------------");
+        log.warning("O_path_file.module.js: this module is deprecated and has moved to 'https://deno.land/x/o_folder_file'");
+        log.warning("-------------");
+
         this._s = s
         this.s_path_name = null
         this.s_file_name = null
