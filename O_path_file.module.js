@@ -77,25 +77,25 @@ class O_path_file{
         // /1/a/../b/../c/lol/.. -> /1/c/
         // /.././../a/b/c/ -> /../../a/b/c/
         var a_s_path_part = []
-        
+        // var s = a_s_part.join(this.s_dir_separator)
+        // s = s.replaceAll(this.s_dir_separator+'.'+this.s_dir_separator, '')
+        // var a_s_part = s.split(this.s_dir_separator)
         for(var s_part of a_s_part){
-            if(s_part == '.'){
+            if(s_part == '.' || s_part == ""){
                 continue
             }
             if(s_part == ".."){
-                if( a_s_path_part.length > 0){
-                    if(
-                        a_s_path_part[a_s_path_part.length-1] == '..' || 
-                        a_s_path_part[a_s_path_part.length-1] == '' 
-                    ){
-                        a_s_path_part.push(s_part)
-                    }else{
-
-                        a_s_path_part.pop()
-                    }
+                if( a_s_path_part.filter(s=>s != '..').length > 0){
+                    a_s_path_part.pop()
+                    continue
+                }else{
+                    a_s_path_part.push(s_part)
+                    continue
                 }
-                continue
+
             }
+                
+            
             a_s_path_part.push(s_part)
 
         }
